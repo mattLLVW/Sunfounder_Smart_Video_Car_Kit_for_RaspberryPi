@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from Tkinter import Tk, Button, Label, Scale
+from Tkinter import Tk, Button, Label, Scale, HORIZONTAL
 from socket import socket, AF_INET, SOCK_STREAM      # Import necessary modules
 
 ctrl_cmd = ['forward', 'backward', 'left', 'right', 'stop', 'read cpu_temp', 'home', 'distance', 'x+', 'x-', 'y+', 'y-', 'xy_home']
@@ -90,6 +90,8 @@ def quit_fun(event):
 # =============================================================================
 # Create buttons
 # =============================================================================
+
+
 Btn0 = Button(top, width=5, text='Forward')
 Btn1 = Button(top, width=5, text='Backward')
 Btn2 = Button(top, width=5, text='Left')
@@ -157,15 +159,15 @@ Btn11.bind('<ButtonPress-1>', xy_home)
 # Bind buttons on the keyboard with the corresponding callback function to
 # control the car remotely with the keyboard.
 # =============================================================================
-top.bind('<KeyPress-a>', left_fun)   # Press down key 'A' on the keyboard and the car will turn left.
+top.bind('<KeyPress-q>', left_fun)   # Press down key 'A' on the keyboard and the car will turn left.
 top.bind('<KeyPress-d>', right_fun)
 top.bind('<KeyPress-s>', backward_fun)
-top.bind('<KeyPress-w>', forward_fun)
+top.bind('<KeyPress-z>', forward_fun)
 top.bind('<KeyPress-h>', home_fun)
-top.bind('<KeyRelease-a>', home_fun)  # Release key 'A' and the car will turn back.
+top.bind('<KeyRelease-q>', home_fun)  # Release key 'A' and the car will turn back.
 top.bind('<KeyRelease-d>', home_fun)
 top.bind('<KeyRelease-s>', stop_fun)
-top.bind('<KeyRelease-w>', stop_fun)
+top.bind('<KeyRelease-z>', stop_fun)
 
 spd = 50
 
